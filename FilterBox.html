@@ -2,84 +2,76 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>demo</title>
-  <link rel="stylesheet" href="FilterBox/rest.css" />
-  <link rel="stylesheet" href="FilterBox/FilterBox.css" />
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="FilterBox/FilterBox.js"></script>
-  <style>
-    .content,
-    .content2 {
-      width: 400px;
-      margin: 40px auto;
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>demo</title>
+    <link rel="stylesheet" href="FilterBox/rest.css" />
+    <link rel="stylesheet" href="FilterBox/FilterBox.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="FilterBox/FilterBox.js"></script>
+    <style>
+        .content,
+        .content2 {
+            width: 400px;
+            margin: 40px auto;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="content"></div>
-  <div class="content2"></div>
+    <div class="content"></div>
+    <div class="content2"></div>
 </body>
 <script>
-  var options = [{
-      name: "分类",
-      items: ["手机", "电脑", "笔记本电脑", "平板电脑"]
-    },
-    {
-      name: "配件品牌",
-      items: [
-        "小米",
-        "华为",
-        "魅族",
-        "三星",
-        "苹果",
-        "联想",
-        "LG",
-        "华硕",
-        "戴尔",
-        "宏碁",
-        "惠普"
-      ]
-    },
-    {
-      name: "尺寸",
-      items: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-    }
-  ];
+    var options = {
+        "分类": ["手机", "电脑", "笔记本电脑", "平板电脑"],
+        "配件品牌": [
+            "小米",
+            "华为",
+            "魅族",
+            "三星",
+            "苹果",
+            "联想",
+            "LG",
+            "华硕",
+            "戴尔",
+            "宏碁",
+            "惠普"
+        ],
+        "尺寸": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    };
 
-  function renderFilterBox(selectItems, options) {
-    window.createFilterBox({
-      selectItems: selectItems,
-      options: options,
-      $content: $(".content"),
-      callBack: function () {
-        //todo get options
-        //this.selectItems,this.options
-        console.log("selectItems=", this.selectItems);
-        console.log("options=", this.options)
-        this.init();
-      }
-    });
-  }
-  renderFilterBox({
-    "分类": "",
-    "配件品牌": "",
-    "尺寸": ""
-  }, options);
-  window.createFilterBox({
-    selectItems: {},
-    options: options,
-    $content: $(".content2"),
-    callBack: function () {
-      //todo get options
-      //renderFilterBox(selectItems,options);
-      this.init();
+    function renderFilterBox(selectItems, options) {
+        window.createFilterBox({
+            selectItems: selectItems,
+            options: options,
+            $content: $(".content"),
+            callBack: function () {
+                //todo get options
+                //this.selectItems,this.options
+                console.log("selectItems=", this.selectItems);
+                console.log("options=", this.options)
+                this.init();
+            }
+        });
     }
-  });
+    renderFilterBox({
+        "分类": "",
+        "配件品牌": "",
+        "尺寸": ""
+    }, options);
+    window.createFilterBox({
+        selectItems: {},
+        options: options,
+        $content: $(".content2"),
+        callBack: function () {
+            //todo get options
+            //renderFilterBox(selectItems,options);
+            this.init();
+        }
+    });
 </script>
 
 </html>

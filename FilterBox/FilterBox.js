@@ -3,7 +3,7 @@
         /* 
         new FilterBox({
           selectItems: {key:value},//已经选择的类别名 key 类别名，value 类别
-          options: options,//所有类别和类别对应的类别名[{name:"",items["",""]}]
+          options: options,//所有类别和类别对应的类别名{key:["item","item"]}
           $content: $(".content"),
           callBack: function () {
             //todo get options
@@ -42,13 +42,13 @@
     };
     FilterBox.prototype.renderOptions = function () {
         let $fcon = $(`<div class="fcon"></div>`);
-        $.each(this.options, (index, option) => {
+        $.each(this.options, (key, option) => {
             let $fitem = $(`<div class="fitem"></div>`);
-            $fitem.append(`<h3 class="fname">${option.name}:</h3>`);
+            $fitem.append(`<h3 class="fname">${key}:</h3>`);
             let $foption = $(`<ul class="foption"></ul>`);
-            $.each(option.items, function (index2, item) {
+            $.each(option, function (index2, item) {
                 $foption.append(
-                    `<li data-name="${option.name}" data-value="${item}">${item}</li>`
+                    `<li data-name="${key}" data-value="${item}">${item}</li>`
                 );
             });
             $fitem.append($foption);
