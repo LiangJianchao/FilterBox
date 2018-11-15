@@ -61,11 +61,8 @@
     FilterBox.prototype.addEvent = function () {
         let _this = this;
         _this.$content.find(".more").off("click").on("click", function (e) {
-            $(this)
-                .parent().find(".foption").toggleClass("heightAuto");
-            if (
-                $(this).parent().find(".foption").hasClass("heightAuto")
-            ) {
+            $(this).parent().find(".foption").toggleClass("heightAuto");
+            if ($(this).parent().find(".foption").hasClass("heightAuto")) {
                 $(this).text("收起");
             } else {
                 $(this).text("展开");
